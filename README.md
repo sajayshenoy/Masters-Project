@@ -1,6 +1,6 @@
-# Chess Data Pipeline
+# Creating a unique and comprehensive chess player and record data base (from e.g., the FIDE website, chessbase, and public profiles on online platforms, like lichess and chess.com)
 
-This repository contains a reproducible pipeline prototype to build a unified chess player + tournament database from:
+This repository contains code to build a unified chess player + tournament database from:
 - FIDE tournament exports (via `fideparser`)
    https://ratings.fide.com/download_lists.phtml
    https://api.chesstools.org/docs#/
