@@ -1,0 +1,36 @@
+RQ2: Opening Repertoire Analysis
+================================
+
+--- Opening Diversity (Avg Unique ECOs per 30 games) ---
+sex
+F    29.33
+M    29.25
+
+
+--- Top 10 Openings by Gender ---
+
+Gender M Top Openings:
+eco
+A00    163
+A45    152
+B06    141
+A40    134
+A05    104
+B00     93
+A01     91
+D02     89
+B12     88
+B10     87
+
+Gender F Top Openings:
+eco
+D02    141
+A40    122
+B01    114
+B12    112
+A45    109
+A00    107
+D00     96
+A04     87
+B23     82
+B10     79

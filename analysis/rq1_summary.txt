@@ -1,0 +1,32 @@
+RQ1: Gender Differences Analysis Results
+========================================
+
+Participation Rates (for players with known gender)
+--------------------------------------------------
+Total Men: 18504
+Total Women: 4833
+
+- Men on Chess.com: 6211 (33.6%)
+- Men on Lichess: 1259 (6.8%)
+- Women on Chess.com: 1378 (28.5%)
+- Women on Lichess: 154 (3.2%)
+
+Observation:
+Men have a slightly higher participation rate on Lichess (6.8% vs 3.2%) and Chess.com (33.6% vs 28.5%) compared to Women, though the difference on Chess.com is narrower.
+
+Rating Correlations (FIDE vs Online Blitz)
+------------------------------------------
+Men:
+  - FIDE vs Chess.com Blitz: 0.649
+  - FIDE vs Lichess Blitz:   0.696
+
+Women:
+  - FIDE vs Chess.com Blitz: 0.695
+  - FIDE vs Lichess Blitz:   0.581
+
+Observation:
+There is a moderate-to-strong positive correlation between FIDE ratings and online Blitz ratings for both genders. The correlation is strongest for Men on Lichess (0.696) and Women on Chess.com (0.695).
+
+Plots
+-----
+Distribution plots are saved in `analysis/plots/`.
