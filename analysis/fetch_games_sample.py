@@ -49,13 +49,12 @@ def fetch_openings_sample():
     count = 0
     
     session = requests.Session()
-    # Good practice
     
     for p in sampled_players:
         username = p['lichess_username']
         sex = p['sex']
         
-        # Rate limiting: Lichess is generous but let's be polite. serial fetching.
+        # Rate limiting: Lichess is generous but let's be polite
         url = f"https://lichess.org/api/games/user/{username}"
         params = {
             'max': 30,
