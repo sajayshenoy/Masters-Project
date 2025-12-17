@@ -118,7 +118,8 @@ def fetch_detailed_games():
                     'acpl': acpl, # Key for RQ1 Decision Quality
                     'eco': eco,
                     'opening_name': opening_name,
-                    'timestamp': game_json.get('createdAt')
+                    'timestamp': game_json.get('createdAt'),
+                    'moves':game_json.get('moves')
                 })
                 
         except Exception as e:

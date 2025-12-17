@@ -4,9 +4,9 @@ import seaborn as sns
 import os
 
 def analyze_openings():
-    input_file = os.path.join("data", "openings_sample.csv")
+    input_file = os.path.join("./../data", "openings_sample.csv")
     if not os.path.exists(input_file):
-        print("Openings data not found.")
+        print("Openings data not found at path",input_file)
         return
 
     df = pd.read_csv(input_file)
