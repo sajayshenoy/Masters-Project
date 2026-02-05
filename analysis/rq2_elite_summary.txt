@@ -1,0 +1,6 @@
+Gender: M
+  Total Games: 16838
+  Unique ECOs: 412
+  Shannon Entropy: 7.3772
+  Top 5 Openings: A04, A45, A46, B06, B07
+------------------------------

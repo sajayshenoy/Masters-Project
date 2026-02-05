@@ -136,7 +136,7 @@ def unify_data():
         else:
             # Unique Lichess player
             entry = {
-                'name': row['name'] if isinstance(row['name'], str) else row['username'],
+                'name': row['name'] if isinstance(row['name'], str) and row['name'].strip() else row['username'],
                 'normalized_name': norm_name if norm_name else row['username'],
                 'fide_id': None,
                 'federation': row['country'],
