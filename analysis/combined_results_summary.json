@@ -1,0 +1,108 @@
+{
+  "Analysis_Metadata": {
+    "Date": "February 26, 2026",
+    "Dataset": "Unified Chess Players (33,713) + Lichess Elite Games (18,886)",
+    "Analysis_Scripts": [
+      "00_gender_inference_analysis.py",
+      "01_rq1_gender_behavior_analysis.py",
+      "02_rq2_opening_repertoire_analysis.py"
+    ]
+  },
+  "Gender_Distribution": {
+    "Total_Players": 33713,
+    "Male_Percentage": 55.515676445288165,
+    "Female_Percentage": 14.504790436923445,
+    "Unknown_Percentage": 29.979533117788392,
+    "Source": {
+      "From_FIDE": 23337,
+      "Inferred_by_Algorithm": 269,
+      "Still_Unclassifiable": 10107
+    }
+  },
+  "RQ1_Findings": {
+    "Research_Question": "Do players behave differently when facing female opponents?",
+    "Games_Analyzed": 7121,
+    "Male_vs_Female_Games": 63,
+    "Male_vs_Male_Games": 6909,
+    "Sub_Question_1_1_Resignation_Time": {
+      "Title": "Do players resign at later stages or worse positions against female opponents?",
+      "Male_vs_Female_Mean_Plies": 88.03,
+      "Male_vs_Male_Mean_Plies": 84.25,
+      "Difference_Plies": 3.78,
+      "T_test_P_Value": 0.3653,
+      "Significant": false,
+      "Conclusion": "Players do NOT resign significantly earlier or later against female opponents"
+    },
+    "Sub_Question_1_2_Decision_Quality": {
+      "Title": "Is blunder rate or opening aggressiveness different vs female opponents?",
+      "Male_vs_Female_Aggressive_Pct": 38.1,
+      "Male_vs_Male_Aggressive_Pct": 45.1,
+      "Difference_Percentage_Points": 7.0,
+      "Chi2_P_Value": 0.3025,
+      "Significant": false,
+      "Conclusion": "Males show 7% lower aggressive openings vs females, but difference is NOT significant"
+    },
+    "Regression_Model": {
+      "Variables": [
+        "Opponent_Gender",
+        "Rating_Difference",
+        "Aggressiveness"
+      ],
+      "R_Squared": 0.0063,
+      "Intercept_Meaning": "Base game length ~84 plies",
+      "Gender_Coefficient": 1.2183,
+      "Gender_Interpretation": "+1.22 plies longer when opponent is female",
+      "Rating_Coefficient": 0.0214,
+      "Rating_Interpretation": "+0.021 plies per rating point difference",
+      "Aggressiveness_Coefficient": -0.9759,
+      "Aggressiveness_Interpretation": "-0.98 plies shorter when opening is aggressive"
+    },
+    "Overall_Conclusion": "WEAK EVIDENCE: No statistically significant behavioral differences, small sample of female opponents (n=63)"
+  },
+  "RQ2_Findings": {
+    "Research_Question": "Do players adapt opening repertoire depending on opponent rating and platform?",
+    "Players_Analyzed": 729,
+    "Male_Players": 700,
+    "Female_Players": 29,
+    "Sub_Question_2_1_Aggressive_vs_Rating": {
+      "Title": "Do players choose more aggressive openings against weaker opponents?",
+      "Male_Avg_Aggressiveness_Pct": 43.4,
+      "Female_Avg_Aggressiveness_Pct": 43.7,
+      "Difference_Percentage_Points": 0.3,
+      "Male_Rating_Correlation": -0.072,
+      "Female_Rating_Correlation": 0.2274,
+      "R_Squared": 0.0089,
+      "Gender_Coefficient": 0.001454,
+      "Significant": false,
+      "Conclusion": "NO: Players do NOT adapt aggressiveness based on opponent rating"
+    },
+    "Sub_Question_2_2_Diversity_Rating": {
+      "Title": "Does opening diversity correlate with rating growth across platforms?",
+      "Male_Avg_Diversity": 3.2844,
+      "Female_Avg_Diversity": 3.0185,
+      "Difference": 0.2659,
+      "Male_Rating_Correlation": 0.2933,
+      "Female_Rating_Correlation": 0.6204,
+      "Male_Rating_Mean": 2483.1,
+      "Female_Rating_Mean": 2411.0,
+      "R_Squared": 0.4662,
+      "Gender_Coefficient": 0.092737,
+      "Significant": true,
+      "Conclusion": "YES: Strong correlation between rating and opening diversity (r=0.29-0.62). Multi-variable model explains 46.6% of variation"
+    },
+    "Overall_Conclusion": "MIXED EVIDENCE: Strong rating-diversity correlation (skill marker), but NO rating-based strategic adaptation in aggressiveness. Female players show stronger diversity-rating relationship."
+  },
+  "Key_Statistics": {
+    "Sample_Bias": {
+      "FIDE_Email_Gender": "79.3% male, 20.7% female",
+      "Chess_com_Players": "42.5% male, 9.5% female",
+      "Lichess_Players": "27.3% male, 3.5% female"
+    },
+    "Effect_Sizes": {
+      "Resignation_Time_Difference": "3.78 plies (not significant)",
+      "Aggressiveness_Difference": "7.0 percentage points (not significant)",
+      "Female_Rating_Deficit": "72.1 rating points (SIGNIFICANT, p<0.001)",
+      "Diversity_Correlation_Gender_Effect": "+0.093 (positive for females)"
+    }
+  }
+}

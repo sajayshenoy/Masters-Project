@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^cd \"c:\\\\Users\\\\sajay\\\\Documents\\\\UZH\\\\UZH 3rd Sem\\\\Master's Project\\\\github_repo\\\\Masters-Project\" ; python -c \"\nimport pandas as pd\n\nprint\\('='\\*70\\)\nprint\\('CHECKING ALL ANALYSIS OUTPUT FILES'\\)\nprint\\('='\\*70\\)\n\n# RQ1 Results\nprint\\('\\\\nRQ1 Results:'\\)\nrq1 = pd\\.read_csv\\('analysis/rq1_regression_results\\.csv'\\)\nprint\\(rq1\\.to_string\\(\\)\\)\n\n# RQ2 Results\nprint\\('\\\\n\\\\nRQ2 Results:'\\)\nrq2 = pd\\.read_csv\\('analysis/rq2_regression_results\\.csv'\\)\nprint\\(rq2\\.to_string\\(\\)\\)\n\n# Gender Distribution Summary\nprint\\('\\\\n\\\\nGender Distribution Summary:'\\)\ngender = pd\\.read_csv\\('analysis/gender_distribution_summary\\.csv'\\)\nprint\\(gender\\.to_string\\(\\)\\)\n\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

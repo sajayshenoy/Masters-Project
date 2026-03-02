@@ -1,0 +1,2 @@
+Dataset,Total_Games,MvF_Games,MvPF_Games,MvF_All_Games,MvM_Games,Resignation_MvF_Mean,Resignation_MvM_Mean,Resignation_Diff,Resignation_Pvalue,Aggressiveness_MvF,Aggressiveness_MvM,Aggressiveness_Diff,Chi2_Pvalue,Model3_R2
+Expanded Lichess (All Elite Games),25554,294,8176,8470,17084,81.97945690672964,85.39124326855537,-3.411786361825733,4.692415643726427e-14,52.40850059031877,50.07024116132054,-2.338259428998235,7.869929148640459e-06,0.002891880299031646

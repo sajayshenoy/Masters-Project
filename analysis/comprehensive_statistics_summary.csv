@@ -1,0 +1,8 @@
+Research Question,Metric,Value,P-value,Significant (p<0.05)
+RQ1: Resignation Time,plies,-4.49,0.025276,✓ YES
+RQ1: Aggressiveness,percentage points,-7.21,0.016677,✓ YES
+RQ1: Gender Effect (Model 3),coefficient,-4.1108,0.041496,✓ YES
+RQ2: Diversity-Rating (M),correlation,0.2933,0.000000,✓ YES
+RQ2: Diversity-Rating (F),correlation,0.6204,0.000331,✓ YES
+RQ2: Aggressiveness-Rating (M),correlation,-0.0720,0.056740,✗ NO
+RQ2: Aggressiveness-Rating (F),correlation,0.2274,0.235473,✗ NO
