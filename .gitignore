@@ -1,2 +1,4 @@
 .idea/
 data/Lichess Elite Database/
+*.md
+data/lichess_elite_all_games_with_gender.csv
