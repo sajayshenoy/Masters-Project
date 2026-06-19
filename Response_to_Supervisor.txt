@@ -1,0 +1,146 @@
+RESPONSE TO SUPERVISOR REVIEW
+Report: "A Unified FIDE, Chess.com, and Lichess Database: Analyzing Elite
+Chess Players and their Behavioral Patterns"
+
+Thank you for the detailed feedback. Below is a point-by-point summary of how
+each comment was addressed in the revised manuscript
+(Master_project_report_revised.tex).
+
+================================================================
+GENERAL COMMENTS
+================================================================
+
+1) "Not clear from abstract/introduction how gender relates to opening
+   preparation."
+   -> The abstract now states explicitly that the unified database is the
+   central contribution and that the two RQs are two demonstrations sharing the
+   same linked identities: RQ1 is behavioral/social (opponent gender) and RQ2 is
+   strategic (opening repertoire). A new paragraph in the Introduction makes the
+   same link: the FIDE-anchored identity map that assigns opponent gender is also
+   what lets us measure each player's repertoire.
+
+2) "Structure is unusual; suggest Introduction / Previous work and research
+   questions / Data Collection / Data Analysis / Discussion / Supplementary
+   Information."
+   -> The manuscript was fully reorganized into exactly these top-level sections,
+   with the previous fragmented sections folded in as subsections.
+
+3) "Research difficulties of data collection/curation should be highlighted more;
+   you are underselling your work."
+   -> Added a dedicated "data-integration research challenge" paragraph in the
+   Introduction and a much more detailed Data Collection section (FIDE fixed-width
+   parsing, three-way Lichess collection strategy, name-based record linkage, and
+   the no-shared-key problem).
+
+4) "Presentation of statistical results is currently insufficient."
+   -> All regression results are now in proper tables with coefficients, standard
+   errors, p-values, and diagnostics (R^2, adjusted R^2, F, p(F), n). See below.
+
+================================================================
+DATA COLLECTION AND DATABASE
+================================================================
+
+5) "Discuss the technical research challenges in the introduction; introduce as
+   a research challenge."
+   -> Done (see general comment 3). The database construction is now framed as
+   the project's primary deliverable and an explicit research challenge.
+
+6) "Explain in more detail how you created the FIDE database. Are there overview
+   websites with all titled players to start scraping from?"
+   -> New subsection "Building the FIDE Base Layer": FIDE publishes a complete
+   monthly Standard Rating List as a downloadable fixed-width text file (the
+   overview source), containing every rated player. We parsed the Sep 2025 list
+   (518,309 players) and filtered to titled players. The fixed-width format is
+   described as the parsing challenge.
+
+7) "33,713 titled players -- what is the coverage? How many titled players
+   overall?"
+   -> New "Coverage" subsection + Table 1. The FIDE Standard List contains 23,366
+   titled players (GM 1,867; IM 4,224; FM 9,388; CM 3,328; WGM 335; WIM 903;
+   WFM 2,105; WCM 1,215). Our base layer covers essentially this entire titled
+   population; the unified count is HIGHER (33,713) because we additionally add
+   platform-titled players not in the FIDE classical list (e.g. National Masters).
+   So the DB is a superset, not a sample.
+
+8) "Unclear how Lichess/Chess.com profiles were matched with FIDE. Clarify."
+   -> New subsection "Identity Matching and Unification": names are normalized
+   from FIDE "Last, First" to a canonical lowercase "first last"; FIDE is the base
+   layer (FIDE ID as anchor); platforms are matched on normalized name with title
+   and federation as disambiguators; unmatched platform-titled players are added
+   as new rows. The limitation of name-based matching is acknowledged, with
+   FIDE-ID-verified linkage listed as future work.
+
+9) "'Perceived-female' variables should be explained earlier, when variables are
+   introduced."
+   -> The perceived-gender definition (tiered: confirmed FIDE label -> name-based
+   inference -> unknown) and the online-cue rationale (women-only titles, real
+   names, avatars) were MOVED into the Data Collection section, before any
+   analysis.
+
+================================================================
+ANALYSIS
+================================================================
+
+10) "Table 3 mixes player and game variables -- indicate which are which."
+    -> The variables table now has an explicit "Level" column (Game vs Player).
+
+11) "Regression results need a table with coefficients, standard errors,
+    p-values, and model diagnostics (e.g. R^2)."
+    -> Re-ran both regressions in statsmodels (OLS). Two full tables added:
+       - RQ1 (DV = PlyCount): intercept, both gender indicators, rating control,
+         aggressiveness; with SE, p, R^2, adj R^2, F, p(F), n.
+       - RQ2 (DVs = aggressiveness and diversity): same diagnostics, plus a
+         by-gender correlation table.
+
+12) "R^2 is tiny -- what could be missing?"
+    -> Discussion section now explains this and lists candidate missing
+    predictors: time control and per-move clock data, opening-theory depth,
+    player fixed effects, engine preparation, rating-tier interactions, and game
+    stakes. We state that the effect is a robust DIRECTION of small practical size.
+
+13) "Does the model include an intercept? That could relate to the small R^2."
+    -> Yes. Both models include an intercept; it is now reported in the tables
+    (~86-88 plies for RQ1). We clarify the small R^2 reflects limited predictor
+    coverage, not a missing constant.
+
+14) "Rating difference is not a good statistic -- effect is centered around 0
+    (Fig.1 panel 4). Include ABSOLUTE rating difference instead/additionally."
+    -> Confirmed empirically and acted on. Signed RatingDiff is NOT significant
+    (p = 0.119). Replacing it with |RatingDiff| gives a highly significant
+    coefficient (p = 6.1e-13) and roughly DOUBLES R^2 (0.0029 -> 0.0048). The RQ1
+    table now presents Model 1 (signed) and Model 2 (absolute) side by side, and
+    the text explains that absolute mismatch shortens games regardless of who is
+    stronger -- matching the zero-centered pattern you noted.
+
+15) "Regression part not sufficient for an informed reader."
+    -> Addressed by 11-14 together: full tables + explicit interpretation of sign,
+    significance, and effect size for every coefficient.
+
+================================================================
+MINOR COMMENTS
+================================================================
+
+16) "'everyone gets an equal number of white and black pieces' -- true for
+    round-robin, not for the Swiss system."
+    -> Corrected: round-robin gives an (almost) equal colour split; in the Swiss
+    system (the most common open-tournament format) colours are balanced as far as
+    possible but not guaranteed equal.
+
+17) "'a lot of literature ...' expects many references or a statement that these
+    are examples."
+    -> Rephrased to "Representative examples include [1-4]" and explicitly stated
+    they are illustrative examples, not an exhaustive survey.
+
+18) "'more than a million matches' -- a match is a multi-game contest; you mean
+    games."
+    -> Corrected throughout to "games", with a parenthetical noting the chess
+    distinction between a match and a game.
+
+================================================================
+NOTE ON RQ2 PLATFORM VARIABLE
+================================================================
+While preparing the regression tables we found that every player in the RQ2
+player-level feature table resolves to a single platform (Lichess). The platform
+term is therefore constant and was dropped to avoid collinearity with the
+intercept; this is stated explicitly in the manuscript. Re-introducing platform
+requires player-level features from Chess.com games and is noted as future work.
