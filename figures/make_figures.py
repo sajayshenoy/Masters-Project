@@ -59,12 +59,13 @@ cols = [g[2] for g in groups]
 labels = [g[0] for g in groups]
 bars = ax[0, 0].bar(labels, means, yerr=errs, capsize=5, color=cols, alpha=0.85,
                     edgecolor="black", linewidth=0.8)
-for b, m, g in zip(bars, means, groups):
-    ax[0, 0].text(b.get_x() + b.get_width() / 2, m + 0.4, f"{m:.1f}\n(n={len(g[1]):,})",
+for b, m, e, g in zip(bars, means, errs, groups):
+    ax[0, 0].text(b.get_x() + b.get_width() / 2, m + e + 2.0,
+                  f"{m:.1f}\nn = {len(g[1]):,}",
                   ha="center", va="bottom", fontsize=9)
 ax[0, 0].set_ylabel("Mean game length (plies)")
 ax[0, 0].set_title("(a) Game length by opponent context")
-ax[0, 0].set_ylim(0, max(means) * 1.18)
+ax[0, 0].set_ylim(0, max(m + e for m, e in zip(means, errs)) * 1.28)
 
 # (b) aggressive opening rate by context
 agg_rates = [g[1]["Agg"].mean() * 100 for g in groups]
