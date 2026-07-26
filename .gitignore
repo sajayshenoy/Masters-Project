@@ -6,7 +6,8 @@ data/Lichess Elite Database/
 data/lichess_elite_all_games_with_gender.csv
 
 # Local report artifacts, kept off the repository on purpose
-Master_project_report_revised.pdf
-Master_project_report_revised.tex
+Master_project_report_final.pdf
+Master_project_report_final.tex
 Response_to_Supervisor.txt
 Revision based on comments.docx
+Revision based on final comments.docx
