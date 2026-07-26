@@ -1,4 +1,12 @@
 .idea/
+.env
 data/Lichess Elite Database/
 *.md
+!README.md
 data/lichess_elite_all_games_with_gender.csv
+
+# Local report artifacts, kept off the repository on purpose
+Master_project_report_revised.pdf
+Master_project_report_revised.tex
+Response_to_Supervisor.txt
+Revision based on comments.docx
