@@ -1,5 +1,7 @@
 # A Unified FIDE, Chess.com, and Lichess Database
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21609029.svg)](https://doi.org/10.5281/zenodo.21609029)
+
 This repository holds the data pipeline, the unified dataset, and the analysis code for a master's
 project that studies behavioral patterns in elite online chess. The main contribution is a single
 player database that links official FIDE identities to Chess.com and Lichess accounts, so that
