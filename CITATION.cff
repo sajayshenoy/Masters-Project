@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this dataset or code, please cite it as below."
+title: "A Unified FIDE, Chess.com, and Lichess Database: Analyzing Elite Chess Players and their Behavioral Patterns"
+authors:
+  - family-names: Shenoy
+    given-names: Ajay Sathish
+  - family-names: Kristic
+    given-names: Toni
+  - family-names: Bhatawadekar
+    given-names: Ved Chintamani
+version: 1.0.0
+date-released: 2026-07-26
+license: MIT
+repository-code: "https://github.com/sajayshenoy/Masters-Project"
+keywords:
+  - chess
+  - record linkage
+  - gender
+  - opening repertoire
+  - data integration

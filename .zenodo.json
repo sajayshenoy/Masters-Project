@@ -1,0 +1,18 @@
+{
+  "title": "A Unified FIDE, Chess.com, and Lichess Database: Analyzing Elite Chess Players and their Behavioral Patterns",
+  "description": "Data pipeline, unified player database, and analysis code for a master's project that links official FIDE identities to Chess.com and Lichess accounts to study behavioral patterns in elite online chess. Includes the scraping and unification code, the derived player and game-level datasets, and the analysis scripts and figures.",
+  "upload_type": "dataset",
+  "creators": [
+    { "name": "Shenoy, Ajay Sathish", "affiliation": "University of Zurich" },
+    { "name": "Kristic, Toni", "affiliation": "University of Zurich" },
+    { "name": "Bhatawadekar, Ved Chintamani", "affiliation": "University of Zurich" }
+  ],
+  "keywords": [
+    "chess",
+    "record linkage",
+    "gender",
+    "opening repertoire",
+    "data integration"
+  ],
+  "license": "MIT"
+}
